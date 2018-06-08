@@ -1,0 +1,492 @@
+$bg: #E0C87E
+$info-bg: #808080
+
+$breakpoint: 1000px
+$breakpoint-sm: 375px
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+	 v2.0 | 20110126
+	 License: none (public domain) */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+	text-decoration: none
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section
+	display: block
+
+body
+	line-height: 1
+
+ol, ul
+	list-style: none
+
+blockquote, q
+	quotes: none
+
+blockquote:before, blockquote:after,
+q:before, q:after
+	content: ''
+	content: none
+
+table
+	border-collapse: collapse
+	border-spacing: 0
+
+// @import url(//fonts.googleapis.com/earlyaccess/notoserifstc.css)
+
+*
+	box-sizing: border-box
+	position: relative
+	outline: none
+
+html,body
+	// font-family: 'Noto Sans TC', sans-serif
+	// font-family: 'bold', 'Noto Serif TC', serif
+	font-weight: 300
+	background-color: $bg
+	height: 100%
+	overflow: hidden
+
+.page-wrapper
+	width: 100%
+	height: 100%
+	section
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		font-size: 1.4em
+		visibility: hidden
+		opacity: 0
+		transition: 1s
+		pointer-events: none
+		// overflow: hidden
+		&.active
+			opacity: 1
+			visibility: visible
+			pointer-events: auto
+		.section-wrapper
+			width: 100%
+			height: 100%
+			padding: 20px
+			display: flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+			@media screen and (max-width: $breakpoint)
+				overflow-y: scroll
+				justify-content: flex-start
+			.btn
+				padding: 10px 20px
+				cursor: pointer
+				transition: 0.2s
+				user-select: none
+				-webkit-tap-highlight-color: transparent
+				color: #000
+				@media screen and (max-width: $breakpoint-sm)
+					font-size: 0.8em
+				&:hover
+					color: #fff
+					#button
+						fill: #000
+					#fb
+						fill: #fff
+				#button
+					width: 100%
+					height: 100%
+					position: absolute
+					top: 0
+					left: 0
+					fill: #fff
+					transition: 0.2s
+#landing
+	.section-wrapper
+		justify-content: center
+	.title
+		width: 90%
+		max-width: 1000px
+		margin-bottom: 60px
+	.sub-title
+		width: 50%
+		max-width: 300px
+		position: absolute
+		bottom: 100px
+		right: 20px
+		transform: rotate(-25deg)
+		@media screen and (max-width: $breakpoint)
+			bottom: 60px
+		img
+			width: 100%
+			opacity: 0
+	.btn
+		opacity: 0
+#info
+	background-color: $info-bg
+	align-items: center
+	transition: 1s, top 0s 
+	&::after
+		content: ""
+		display: block
+		background: linear-gradient(rgba($info-bg,1) 0%,rgba($info-bg, 0.9) 20%,transparent 100%)
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 100%
+		left: 0
+	&.active
+		top: 0
+	.section-wrapper
+		justify-content: center
+	.title
+		// width: 90%
+		// max-width: 1000px
+		margin-bottom: 40px
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		justify-content: center
+		font-size: 3em
+		color: #fff
+		font-style: italic
+		@media screen and (max-width: $breakpoint) 
+			font-size: 2em
+			// justify-content: flex-start
+			line-height: 1.5em
+		@media screen and (max-width: $breakpoint-sm)
+			font-size: 1.5em 
+	.sub-title
+		display: flex
+		flex-direction: column
+		align-items: center
+		line-height: 1.5em
+		margin-bottom: 40px
+		@media screen and (max-width: $breakpoint) 
+			font-size: 0.8em
+		@media screen and (max-width: $breakpoint-sm)
+			font-size: 0.6em
+		p
+			display: flex
+			justify-content: center
+			flex-wrap: wrap
+
+.quest
+	.section-wrapper
+		@media screen and (max-width: $breakpoint-sm) 
+			padding: 0 20px
+		&>*
+			flex: 0 0 auto
+	.quest-no
+		margin: 30px 0
+		font-size: 1.2em
+		@media screen and (max-width: $breakpoint) 
+			margin: 15px 0
+	.line
+		width: 80%
+		display: flex
+		align-items: center
+		@media screen and (max-width: $breakpoint) 
+			width: 100%
+		img
+			width: 100%
+			height: 3px
+	.quest-content
+		margin: 40px 0
+		display: flex
+		flex-direction: column
+		align-items: center
+		line-height: 1.7em
+		max-width: 1000px
+		@media screen and (max-width: $breakpoint) 
+			font-size: 0.8em
+			margin: 30px 0
+		@media screen and (max-width: $breakpoint-sm) 
+			font-size: 0.6em
+			margin: 10px 0
+		img
+			width: 70%
+			margin-bottom: 20px
+		.strong
+			font-size: 1.5em
+			margin-top: 10px
+		p
+			display: flex
+			flex-wrap: wrap
+			justify-content: center
+	.row
+		margin-top: 40px
+		width: 100%
+		max-width: 1000px
+		display: flex
+		justify-content: center
+		// align-items: flex-end
+		@media screen and (max-width: $breakpoint) 
+			width: auto
+			flex-direction: column
+			margin-top: 10px
+		.ans
+			display: flex
+			margin: 0 10px
+			cursor: pointer
+			outline: none
+			user-select: none
+			-webkit-tap-highlight-color: transparent
+			flex: 1
+			&::before
+				content: ""
+				display: block
+				width: calc(100% + 10px)
+				height: calc(100% + 20px)
+				background-color: rgba(#000,0.1)
+				opacity: 0
+				position: absolute
+				top: -10px
+				left: -5px
+				transition: 0.3s
+			&:hover
+				&::before
+					opacity: 1
+			@media screen and (max-width: $breakpoint) 
+				margin: 10px 0
+
+			.ans-header 
+				font-size: 4em
+				color: #fff
+				@media screen and (max-width: $breakpoint) 
+					line-height: 0.8em
+				@media screen and (max-width: $breakpoint-sm) 
+					font-size: 2.5em
+				
+			.ans-content
+				margin-left: -20px
+				margin-top: 30px
+				display: flex
+				// max-width: 260px
+				flex-direction: column
+				align-items: flex-start
+				justify-content: flex-start
+				// flex-wrap: wrap
+				font-size: 0.7em
+				line-height: 1.5em
+				p
+					// flex: 0 0 auto
+				@media screen and (max-width: $breakpoint) 
+					margin-top: 10px
+				@media screen and (max-width: $breakpoint-sm) 
+					font-size: 0.6em
+					max-width: 240px
+
+#q1
+	.ans-content
+		margin-left: 10px
+		align-items: center
+	@media screen and (min-width: $breakpoint) 
+		.ans
+			flex-direction: column
+			text-align: center
+			flex: 0 0 auto
+			margin: 0 30px
+			.ans-content
+				width: 100%
+				margin-left: 0
+				margin-top: 15px
+				p
+					width: 100%
+#q2
+	.ans
+		@media screen and (max-width: $breakpoint) 
+			// font-size: 0.9em
+			margin-top: 0
+	.ans-content
+		max-width: 200px
+
+#q4
+	.quest-content
+		@media screen and (max-width: $breakpoint) 
+			max-height: 300px
+			overflow-y: scroll
+			p
+				flex: 0 0 auto
+		@media screen and (max-width: $breakpoint-sm)
+			max-height: 250px 
+	.row
+		@media screen and (max-width: $breakpoint) 
+			flex-direction: row
+			margin-top: 20px
+	.ans
+		flex-direction: column
+		text-align: center
+		flex: 0 0 auto
+		@media screen and (max-width: $breakpoint) 
+			margin: 0 10px
+			// padding: 10px
+		.ans-content
+			// width: 100%
+			margin-left: 0
+			text-align: center
+		img
+			height: 70px
+			@media screen and (max-width: $breakpoint-sm)
+				height: 40px 
+		
+		
+
+#q6
+	@media screen and (max-width: $breakpoint-sm)
+		font-size: 1.3em 
+#q7
+	@media screen and (max-width: $breakpoint-sm)
+		font-size: 1.3em 
+
+
+#calculating
+	.section-wrapper
+		justify-content: center
+	.calculating-text
+		padding: 10px 20px
+		cursor: pointer
+		transition: 0.2s
+		font-size: 1.5em
+		@media screen and (max-width: $breakpoint-sm)
+			font-size: 1.2em
+		svg
+			width: 100%
+			height: 100%
+			position: absolute
+			top: 0
+			left: 0
+			fill: #fff
+
+#result
+	.section-wrapper
+		flex-direction: row
+		justify-content: center
+		@media screen and (max-width: $breakpoint) 
+			flex-direction: column
+			align-items: center
+			// justify-content: flex-start
+		@media screen and (max-width: $breakpoint) 
+			padding: 0
+		.left,.right
+			display: flex
+			flex-direction: column
+			align-items: center
+			width: 22%
+			margin: 0 1%
+			// background-color: #d24
+			@media screen and (max-width: $breakpoint) 
+				order: 2
+				flex-direction: row
+				align-items: flex-start
+				justify-content: center
+				flex: 0 0 auto
+				width: 100%
+		.restart,.share,.ad
+			display: flex
+			flex-direction: column
+			align-items: center
+			// flex: 1
+			@media screen and (max-width: $breakpoint) 
+				order: 2
+				flex: 0 0 auto
+				margin: 10px 0
+			p
+				margin-bottom: 15px
+				display: flex
+				flex-wrap: wrap
+				justify-content: center
+				line-height: 1.3em
+				font-size: 0.8em
+				@media screen and (max-width: $breakpoint) 
+					display: none
+					margin-bottom: 10px
+					flex-direction: column
+					align-items: center
+					font-size: 0.7em
+				@media screen and (max-width: $breakpoint-sm) 
+					font-size: 0.6em
+			.btn
+				@media screen and (max-width: $breakpoint-sm) 
+					font-size: 0.6em
+
+			#fb
+				width: 15px	
+				transition: 0.2s	
+		.restart
+			margin-bottom: 40px
+			@media screen and (max-width: $breakpoint) 
+				margin-right: 10px
+				margin-bottom: 10px
+		.result-img
+			// flex: 3
+			width: 50%
+			// background-color: #d24
+			@media screen and (max-width: $breakpoint) 
+				order: 1
+				flex: 0 0 auto
+				width: 100%
+				max-width: 600px
+				margin-bottom: 20px
+			@media screen and (max-width: $breakpoint) 
+				margin-bottom: 0
+			img
+				// height: 100%
+				width: 100%
+
+
+
+
+.logos
+	position: absolute
+	bottom: 0
+	right: 20px
+	// display: none
+	opacity: 0
+	display: flex
+	align-items: center
+	transition: opacity 1s
+	z-index: 0
+	@media screen and (max-width: $breakpoint) 
+		width: 100%
+		justify-content: space-between
+		right: 0
+		padding: 0 10px
+	&.active
+		// display: block
+		opacity: 1
+	img
+		width: 150px
+		opacity: 0.6
+		@media screen and (max-width: $breakpoint) 
+			width: 130px
+
+
+.texture
+	width: 100%
+	height: 100%
+	position: fixed
+	top: 0
+	left: 0
+	background-image: url("../images/texture.png")
+	background-size: cover
+	pointer-events: none
